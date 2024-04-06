@@ -4,7 +4,6 @@ import AudioPlayerComponent from "react-h5-audio-player";
 export const AudioPlayer = styled(AudioPlayerComponent)`
     background-color: black;
     display: flex;
-    color: white;
 `;
 export const Container = styled.div`
     width: 300px;

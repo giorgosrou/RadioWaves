@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-h5-audio-player/lib/styles.css';
-import * as Styled from "./styled";
+import * as Styled from './styled';
 
 export type AudioPlayerProps = {
   soundSource: string | undefined
@@ -17,11 +17,13 @@ export const AudioPlayer= ({
     <div>
       <Styled.Container>
         <Styled.AudioPlayer
-          autoPlay
           header = {header}
+          showJumpControls={false}
+          layout={"stacked"}
           footer = {footer}
           src={soundSource}
-          onPlay={e => console.log("onPlay")}
+          customProgressBarSection={[]}
+          autoPlayAfterSrcChange={false}
           // other props here
         />
       </Styled.Container>
