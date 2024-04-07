@@ -6,10 +6,10 @@
 }
 
 body {
-  background: #282c34;
-  background: linear-gradient(to right, rgb(40,31,53), rgb(61,46,83) );
+  background: linear-gradient(to bottom, #191414, #000000 );
   color: white;
-  font-family: "Monserrat", serif ;
+  font-family: "Roboto", serif ;
+  font-weight: bold;
 }
 
 @media (prefers-reduced-motion: no-preference) {

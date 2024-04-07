@@ -1,19 +1,40 @@
 import { RadioBrowserApi, Station } from 'radio-browser-api';
 import { StationItem } from './stationItem';
 import * as Styled from "./styled";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export const Stations = () => {
-  const api = new RadioBrowserApi('My Radio App');
   const [stations, setStations] = useState<Station[]>([]);
+  const [selectedGenre, setSelectedGenre] = useState("all");
+
+  const filters = [
+    "all",
+    "metal",
+    "rock",
+    "jazz",
+    "rap",
+    "psychedelic rock",
+    "psychedelic",
+    "indie",
+    "reggae",
+    "pop",
+    "country",
+    "disco",
+    "soul",
+    "ska",
+    "cumbia",
+  ]
+
+  let api: RadioBrowserApi;
+  api = new RadioBrowserApi('My Radio App');
 
   useEffect(() => {
     const fetchStations = async () => {
       try {
         const stationsData = await api.searchStations({
           language: 'english',
-          tag: 'rock',
-          limit: 100
+          tag: selectedGenre,
+          limit: 50,
         });
         setStations(stationsData);
       } catch (error) {
@@ -22,13 +43,29 @@ export const Stations = () => {
     };
 
     fetchStations();
-  }, [api]);
+  }, [api, selectedGenre]);
 
   return(
-    <Styled.StationsContainer>
-      {stations.map(station => (
-        <StationItem key={station.id} station={station} />
-      ))}
-    </Styled.StationsContainer>
+    <>
+      <Styled.FilterContainer>
+        {filters.map(filter => {
+          return (
+            <Styled.Filter
+              key={filter}
+              onClick={() => {setSelectedGenre(filter)}}
+              isSelected={filter === selectedGenre}
+            >
+              {filter}
+            </Styled.Filter>
+          )
+        })}
+      </Styled.FilterContainer>
+      <Styled.StationsContainer>
+        {stations.map(station => (
+          <StationItem key={station.id} station={station} />
+        ))}
+      </Styled.StationsContainer>
+    </>
+
   );
 };

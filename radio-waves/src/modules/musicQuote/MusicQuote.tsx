@@ -5,8 +5,8 @@ export const MusicQuote = () => {
 
   return (
     <Styled.TextContainer>
-      <h1>Life is too short to listen bad music</h1>
-      <h2>Choose your music cup of tea and start listening!</h2>
+      <h1>Don't waste your time on bad tunes</h1>
+      <h2>Discover and listen to the best radio stations</h2>
     </Styled.TextContainer>
   )
 }
