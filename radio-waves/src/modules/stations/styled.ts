@@ -7,7 +7,7 @@ interface FilterProps {
 export const StationsContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 100%;
+    width: 90%;
     align-items: center;
     justify-items: center;
     @media (max-width: 768px) {
@@ -38,7 +38,6 @@ export const Filter = styled.span<FilterProps> `
     flex-wrap: wrap;
     
     &:hover {
-        background: ${props => (props.isSelected ? '#FFA500' : 'linear-gradient(to bottom, #121212, #000000)')};
-
+        background: ${props => (props.isSelected ? '#FFA500' : '#FFA500')};
     }
 `;

@@ -1,9 +1,8 @@
 import React from 'react';
 import './assets/App.css';
 import { MusicQuote } from './modules/musicQuote';
-import { Stations } from "./modules/stations";
-import { Logo } from "./modules/logo";
-
+import { Stations } from './modules/stations';
+import { Logo } from './modules/logo';
 
 function App() {
   return (

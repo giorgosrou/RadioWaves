@@ -1,7 +1,7 @@
 import { RadioBrowserApi, Station } from 'radio-browser-api';
 import { StationItem } from './stationItem';
 import * as Styled from "./styled";
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const Stations = () => {
   const [stations, setStations] = useState<Station[]>([]);
@@ -61,11 +61,10 @@ export const Stations = () => {
         })}
       </Styled.FilterContainer>
       <Styled.StationsContainer>
-        {stations.map(station => (
+        {stations.map((station: Station) => (
           <StationItem key={station.id} station={station} />
         ))}
       </Styled.StationsContainer>
     </>
-
   );
 };
