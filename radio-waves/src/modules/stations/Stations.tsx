@@ -25,10 +25,12 @@ export const Stations = () => {
     "cumbia",
   ]
 
+  /* To be used when https call is fixed
+
   let api: RadioBrowserApi;
   api = new RadioBrowserApi('My Radio App');
 
-  useEffect(() => {
+   useEffect(() => {
     const fetchStations = async () => {
       try {
         const stationsData = await api.searchStations({
@@ -44,6 +46,28 @@ export const Stations = () => {
 
     fetchStations();
   }, [api, selectedGenre]);
+
+ */
+  useEffect(() => {
+    const fetchStations = async () => {
+      try {
+        const apiUrl = `https://radiowaves-api.onrender.com/api/servers?genre=${selectedGenre}`;
+        console.warn('Request URL:', apiUrl); // Log the request URL
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error('Failed to fetch stations');
+        }
+        const stationsData: Station[] = await response.json();
+        setStations(stationsData);
+      } catch (error) {
+        console.error('Error fetching data from backend:', error);
+        // Handle error
+      }
+    };
+
+    fetchStations();
+  }, [selectedGenre]);
+
 
   return(
     <>
