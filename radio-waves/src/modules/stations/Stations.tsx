@@ -52,6 +52,7 @@ export const Stations = () => {
     const fetchStations = async () => {
       try {
         const apiUrl = `https://radiowaves-api.onrender.com/api/servers?genre=${selectedGenre}`;
+        //const apiUrl = `http://localhost:3002/api/servers?genre=${selectedGenre}`;
         console.warn('Request URL:', apiUrl); // Log the request URL
         const response = await fetch(apiUrl);
         if (!response.ok) {

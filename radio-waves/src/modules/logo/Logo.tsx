@@ -1,5 +1,5 @@
 // @ts-ignore
-import logo from '../../assets/RadioWaveLogo.png'
+import logo from '../../assets/logo.png'
 import * as Styled from './styled';
 
 export const Logo = () => {

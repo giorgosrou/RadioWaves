@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const LogoContainer = styled("div") `
     width: 80%;
     height: 100px;
-    justify-items: flex-start;
+    justify-items: center;
+    justify-content: center;
     display:flex;
     background-color: linear-gradient(to bottom, #191414, #000000 );
 `
