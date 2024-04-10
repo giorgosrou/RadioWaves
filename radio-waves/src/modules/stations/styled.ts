@@ -31,13 +31,13 @@ export const Filter = styled.span<FilterProps> `
     display: flex;
     padding: 0.25em 0.75em;
     border-radius: 30px;
-    border: 2px solid #FFA500;
+    border: 2px solid purple;
     transition: color 0.3s;
     margin: 0.5em;
-    background: ${props => (props.isSelected ? '#FFA500' : 'linear-gradient(to bottom, #121212, #000000)')};
+    background: ${props => (props.isSelected ? 'purple' : 'linear-gradient(to bottom, #121212, #000000)')};
     flex-wrap: wrap;
     
     &:hover {
-        background: ${props => (props.isSelected ? '#FFA500' : '#FFA500')};
+        background: ${props => (props.isSelected ? 'purple' : 'purple')};
     }
 `;
