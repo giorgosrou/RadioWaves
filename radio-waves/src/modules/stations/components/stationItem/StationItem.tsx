@@ -1,10 +1,10 @@
-import { AudioPlayer } from '../../../components/audioPlayer';
 import React from 'react';
-import * as Styled from "./styled";
-import { Station } from "radio-browser-api";
-import { StationLogo } from "./stationLogo/StationLogo";
-import { StationName } from "./stationName";
+import * as Styled from './styled';
+import { Station } from 'radio-browser-api';
+import { StationLogo } from './components/stationLogo/StationLogo';
+import { StationName } from './components/stationName';
 import { Tilt } from 'react-tilt';
+import { AudioPlayer } from '../../../../components/audioPlayer';
 
 
 export type StationItemProps = {

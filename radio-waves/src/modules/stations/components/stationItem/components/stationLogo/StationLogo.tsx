@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from "react";
 // @ts-ignore
-import logo from "../../../../assets/radio.png";
+import logo from '../../../../../../assets/radio.png';
 import * as Styled from "./styled";
 
 export type LogoProps = {

@@ -1,6 +1,6 @@
-import { Logo } from "../../modules/logo"
-import { MusicQuote } from "../../modules/musicQuote"
-import { Stations } from "../../modules/stations"
+import { Logo } from '../../components/logo';
+import { Stations } from '../../modules/stations';
+import { MusicQuote } from './components/musicQuote';
 
 
 export const MainPage = () => {
