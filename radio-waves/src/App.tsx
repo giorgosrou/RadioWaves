@@ -1,15 +1,11 @@
 import React from 'react';
 import './assets/App.css';
-import { MusicQuote } from './modules/musicQuote';
-import { Stations } from './modules/stations';
-import { Logo } from './modules/logo';
+import { MainPage } from './pages/mainPage';
 
 function App() {
   return (
     <div className="App">
-      <Logo />
-      <MusicQuote />
-      <Stations />
+      <MainPage />
     </div>
   );
 }
