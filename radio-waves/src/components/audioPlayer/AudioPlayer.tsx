@@ -10,7 +10,7 @@ export const AudioPlayer= ({
   soundSource,
 }: AudioPlayerProps) => {
   return (
-    <div>
+    <>
       <Styled.Container>
         <Styled.AudioPlayer
           showJumpControls={false}
@@ -22,7 +22,7 @@ export const AudioPlayer= ({
           // other props here
         />
       </Styled.Container>
-    </div>
+    </>
 
   );
 };

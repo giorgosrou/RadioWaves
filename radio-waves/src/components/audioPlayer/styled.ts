@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import AudioPlayerComponent from "react-h5-audio-player";
+import styled from 'styled-components';
+import AudioPlayerComponent from 'react-h5-audio-player';
 
 export const AudioPlayer = styled(AudioPlayerComponent)`
     background-color: white;

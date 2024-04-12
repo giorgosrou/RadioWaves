@@ -72,7 +72,7 @@ export const Stations = () => {
 
   return(
     <>
-      <Styled.FilterContainer>
+      <Styled.FilterWrapper>
         {filters.map(filter => {
           return (
             <Styled.Filter
@@ -84,7 +84,7 @@ export const Stations = () => {
             </Styled.Filter>
           )
         })}
-      </Styled.FilterContainer>
+      </Styled.FilterWrapper>
       <Styled.StationsContainer>
         {stations.map((station: Station) => (
           <StationItem key={station.id} station={station} />

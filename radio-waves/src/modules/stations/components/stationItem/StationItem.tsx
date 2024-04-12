@@ -21,7 +21,7 @@ export const StationItem = ({station}:StationItemProps) => {
         <AudioPlayer
           soundSource={station?.urlResolved}
         />
-        <Styled.CountryLabel>{station?.country}</Styled.CountryLabel>
+        <Styled.CountryLabel>{station?.country.slice(0, 40)}</Styled.CountryLabel>
       </Styled.StationContainer>
     </Tilt>
   )
