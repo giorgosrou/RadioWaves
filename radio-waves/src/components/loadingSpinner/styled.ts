@@ -1,20 +1,25 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-export const LoaderContainer = styled.div`
-    textAlign: 'center';
-`
+export const spinAnimation = keyframes`
+    to {
+        transform: rotate(360deg);
+    }
+`;
 
-export const Loader = styled.div`
+export const SpinnerContainer = styled.div`
+    text-align: center;
+`;
+
+export const Spinner = styled.div`
+  display: inline-block;
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-left-color: #1a202c;
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  animation: spin 1s linear infinite;
+  animation: ${spinAnimation} 1s linear infinite;
+`;
 
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
+export const LoadingText = styled.div`
+  margin-top: 10px;
 `;
