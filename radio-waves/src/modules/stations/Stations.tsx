@@ -1,13 +1,17 @@
 import { Station } from 'radio-browser-api';
 import { StationItem } from './components/stationItem';
 import * as Styled from "./styled";
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { LoadingSpinner } from '../../components/loadingSpinner/LoadingSpinner';
+import { useStations } from '../../hooks/useStations';
 
 export const Stations = () => {
-  const [stations, setStations] = useState<Station[]>([]);
   const [selectedGenre, setSelectedGenre] = useState("all");
-  const [loading, setLoading] = useState(true);
+
+  const url = `https://radiowaves-api.onrender.com/api/servers?genre=${selectedGenre}`;
+  //const url = `http://localhost:3002/api/servers?genre=${selectedGenre}`;
+
+  const { stations, isLoading } = useStations(url);
 
   const filters = [
     "all",
@@ -27,53 +31,6 @@ export const Stations = () => {
     "cumbia",
   ]
 
-  /* To be used when https call is fixed
-
-  let api: RadioBrowserApi;
-  api = new RadioBrowserApi('My Radio App');
-
-   useEffect(() => {
-    const fetchStations = async () => {
-      try {
-        const stationsData = await api.searchStations({
-          language: 'english',
-          tag: selectedGenre,
-          limit: 50,
-        });
-        setStations(stationsData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchStations();
-  }, [api, selectedGenre]);
-
- */
-  useEffect(() => {
-    const fetchStations = async () => {
-      setLoading(true);
-      try {
-        const apiUrl = `https://radiowaves-api.onrender.com/api/servers?genre=${selectedGenre}`;
-        //const apiUrl = `http://localhost:3002/api/servers?genre=${selectedGenre}`;
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error('Failed to fetch stations');
-        }
-        const stationsData: Station[] = await response.json();
-        setStations(stationsData);
-      } catch (error) {
-        console.error('Error fetching data from backend:', error);
-        // Handle error
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchStations();
-  }, [selectedGenre]);
-
-
   return(
     <>
       <Styled.FilterWrapper>
@@ -89,7 +46,7 @@ export const Stations = () => {
           )
         })}
       </Styled.FilterWrapper>
-      {loading ? (
+      {isLoading ? (
         <LoadingSpinner />
       ) : (
         <Styled.StationsContainer>
