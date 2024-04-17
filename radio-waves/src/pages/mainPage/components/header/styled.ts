@@ -23,12 +23,11 @@ export const ItemsContainer = styled.div`
     align-items: center;
 
     @media (min-width: 768px) {
-        flex-direction: row; /* Display items horizontally on screens wider than 768px */
+        flex-direction: row;
     }
 
     @media (max-width: 767px) {
-        /* Apply changes only on screens narrower than 768px (mobile screens) */
-        flex-direction: column; /* Display items vertically */
+        flex-direction: column; 
     }
 `;
 

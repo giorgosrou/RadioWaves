@@ -43,8 +43,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  /* Adjust font size for mobile devices */
   body {
-    font-size: 12px; /* Adjust the font size as needed */
+    font-size: 13px;
   }
 }

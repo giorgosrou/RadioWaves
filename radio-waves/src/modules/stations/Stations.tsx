@@ -41,7 +41,9 @@ export const Stations = () => {
               onClick={() => {setSelectedGenre(filter)}}
               isSelected={filter === selectedGenre}
             >
-              {filter}
+              <Styled.FilterLabel>
+                {filter}
+              </Styled.FilterLabel>
             </Styled.Filter>
           )
         })}

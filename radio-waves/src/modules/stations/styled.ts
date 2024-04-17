@@ -34,3 +34,9 @@ export const Filter = styled.span<{ isSelected: boolean }>`
         background: ${props => (props.isSelected ? 'purple' : 'purple')};
     }
 `;
+
+export const FilterLabel =styled.span`
+    @media (max-width: 767px) {
+        font-size: 13px;
+    }
+`
