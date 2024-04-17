@@ -4,12 +4,13 @@ import * as Styled from "./styled";
 import React, { useState } from 'react';
 import { LoadingSpinner } from '../../components/loadingSpinner/LoadingSpinner';
 import { useStations } from '../../hooks/useStations';
+import { Filters } from './components/filters';
 
 export const Stations = () => {
   const [selectedGenre, setSelectedGenre] = useState("all");
 
-  const url = `https://radiowaves-api.onrender.com/api/servers?genre=${selectedGenre}`;
-  //const url = `http://localhost:3002/api/servers?genre=${selectedGenre}`;
+  //const url = `https://radiowaves-api.onrender.com/api/servers?genre=${selectedGenre}`;
+  const url = `http://localhost:3002/api/servers?genre=${selectedGenre}`;
 
   const { stations, isLoading } = useStations(url);
 
@@ -31,23 +32,13 @@ export const Stations = () => {
     "cumbia",
   ]
 
+  const handleGenreChange = (genre: string) => {
+    setSelectedGenre(genre);
+  };
+
   return(
     <>
-      <Styled.FilterWrapper>
-        {filters.map(filter => {
-          return (
-            <Styled.Filter
-              key={filter}
-              onClick={() => {setSelectedGenre(filter)}}
-              isSelected={filter === selectedGenre}
-            >
-              <Styled.FilterLabel>
-                {filter}
-              </Styled.FilterLabel>
-            </Styled.Filter>
-          )
-        })}
-      </Styled.FilterWrapper>
+      <Filters filters={filters} selectedGenre={selectedGenre} onSelectGenre={handleGenreChange} />
       {isLoading ? (
         <LoadingSpinner />
       ) : (
