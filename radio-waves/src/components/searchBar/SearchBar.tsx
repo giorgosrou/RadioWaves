@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BiSearch } from 'react-icons/bi'
 import { Button } from '../button';
 import * as Styled from './styled';
@@ -15,21 +15,27 @@ export const SearchBar = ({onSearch}:SearchBarProps) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSubmit();
+    }
+  };
+
+  const handleSubmit = () => {
     onSearch(searchTerm.trim());
     setSearchTerm('');
   };
 
   return (
-    <Styled.Form onSubmit={handleSubmit}>
+    <Styled.Form>
       <Styled.Input
         type="text"
         placeholder="Search stations"
         value={searchTerm}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
       />
-      <Button content={<BiSearch size={14}/>} onClick={() => handleSubmit} />
+      <Button content={<BiSearch size={14}/>} onClick={handleSubmit} />
     </Styled.Form>
   )
 }
