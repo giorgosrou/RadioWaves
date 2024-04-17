@@ -37,6 +37,6 @@ export const Filter = styled.span<{ isSelected: boolean }>`
 
 export const FilterLabel =styled.span`
     @media (max-width: 767px) {
-        font-size: 13px;
+        font-size: 16px;
     }
 `
