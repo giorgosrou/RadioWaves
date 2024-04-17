@@ -3,8 +3,8 @@ import logo from '../../assets/logo.png'
 import * as Styled from './styled';
 
 export const Logo = () => {
-  //const url = `https://wave-radio.netlify.app/`;
-  const url = `http://localhost:3000`;
+  const url = `https://wave-radio.netlify.app/`;
+  //const url = `http://localhost:3000`;
   const handleLogoClick = () => {
     // Redirect to the desired page
     window.location.href = url;

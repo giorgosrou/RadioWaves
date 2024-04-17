@@ -9,8 +9,8 @@ import { Filters } from './components/filters';
 export const Stations = () => {
   const [selectedGenre, setSelectedGenre] = useState("all");
 
-  //const url = `https://radiowaves-api.onrender.com/api/servers?genre=${selectedGenre}`;
-  const url = `http://localhost:3002/api/servers?genre=${selectedGenre}`;
+  const url = `https://radiowaves-api.onrender.com/api/servers?genre=${selectedGenre}`;
+  //const url = `http://localhost:3002/api/servers?genre=${selectedGenre}`;
 
   const { stations, isLoading } = useStations(url);
 
