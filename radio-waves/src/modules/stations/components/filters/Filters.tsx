@@ -14,8 +14,8 @@ export const Filters = ({filters, selectedGenre, onSelectGenre}: FilterProps) =>
         return (
           <Styled.Filter
             key={filter}
-            onClick={() => {onSelectGenre(filter)}}
-            isSelected={filter === selectedGenre}
+            onClick={() => onSelectGenre(filter)}
+            $isSelected={filter === selectedGenre}
           >
             <Styled.FilterLabel>
               {filter}

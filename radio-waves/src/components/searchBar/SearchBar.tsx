@@ -12,18 +12,22 @@ export const SearchBar = ({onSearch}:SearchBarProps) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
+    const value = event.target.value;
+    setSearchTerm(value);
+  };
+
+  const handleSubmit = () => {
+    if (searchTerm.trim() !== '') {
+      onSearch(searchTerm.trim());
+      setSearchTerm('');
+    }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
+      event.preventDefault();
       handleSubmit();
     }
-  };
-
-  const handleSubmit = () => {
-    onSearch(searchTerm.trim());
-    setSearchTerm('');
   };
 
   return (

@@ -10,7 +10,7 @@ export const FilterWrapper = styled.div`
     margin-bottom: 40px;
 `;
 
-export const Filter = styled.span<{ isSelected: boolean }>`
+export const Filter = styled.span<{ $isSelected: boolean }>`
     cursor: pointer;
     display: flex;
     padding: 0.25em 0.75em;
@@ -18,10 +18,10 @@ export const Filter = styled.span<{ isSelected: boolean }>`
     border: 2px solid purple;
     transition: color 0.3s;
     margin: 0.5em;
-    background: ${props => (props.isSelected ? 'purple' : 'linear-gradient(to bottom, #121212, #000000)')};
+    background: ${(props) => (props.$isSelected ? 'purple' : 'linear-gradient(to bottom, #121212, #000000)')};
 
     &:hover {
-        background: ${props => (props.isSelected ? 'purple' : 'purple')};
+        background: ${(props) => (props.$isSelected ? 'purple' : 'purple')};
     }
 `;
 

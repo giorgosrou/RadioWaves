@@ -3,17 +3,17 @@ import { SearchBar } from '../../../../components/searchBar';
 import * as Styled from './styled'
 import 'react-h5-audio-player/lib/styles.css';
 
-export const Header = () => {
+export type HeaderProps = {
+  onSearch: (searchTerm: string) => void;
+}
 
-  const handleSearch = (searchTerm: string) => {
-    console.log('Performing search for:', searchTerm);
-  };
+export const Header = ({ onSearch }: HeaderProps) => {
 
   return (
     <Styled.HeaderContainer>
       <Styled.ItemsContainer>
         <Logo />
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={onSearch} />
       </Styled.ItemsContainer>
     </Styled.HeaderContainer>
   )
