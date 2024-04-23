@@ -8,9 +8,10 @@ import { Filters } from './components/filters';
 
 export type StationsProps = {
   searchterm: string;
+  onSelectStation: (station: Station) => void;
 }
 
-export const Stations = ({searchterm}: StationsProps) => {
+export const Stations = ({searchterm, onSelectStation }: StationsProps) => {
   const [selectedGenre, setSelectedGenre] = useState("all");
   const [url, setUrl] = useState<string>("");
 
@@ -22,11 +23,11 @@ export const Stations = ({searchterm}: StationsProps) => {
 
   useEffect(() => {
     if (searchterm.trim() !== '') {
-      setUrl(`https://radiowaves-api.onrender.com/api/search?searchterm=${searchterm}`);
-      //setUrl(`http://localhost:3002/api/search?searchterm=${searchterm}`);
+      //setUrl(`https://radiowaves-api.onrender.com/api/search?searchterm=${searchterm}`);
+      setUrl(`http://localhost:3002/api/search?searchterm=${searchterm}`);
     } else {
-      setUrl(`https://radiowaves-api.onrender.com/api/filters?genre=${selectedGenre}`);
-      //setUrl(`http://localhost:3002/api/filters?genre=${selectedGenre}`);
+      //setUrl(`https://radiowaves-api.onrender.com/api/filters?genre=${selectedGenre}`);
+      setUrl(`http://localhost:3002/api/filters?genre=${selectedGenre}`);
     }
   }, [searchterm, selectedGenre]);
 
@@ -34,7 +35,10 @@ export const Stations = ({searchterm}: StationsProps) => {
 
   const handleGenreChange = (genre: string) => {
     setSelectedGenre(genre);
-    console.warn(genre);
+  };
+
+  const handleSelectStation = (station: Station) => {
+    onSelectStation(station);
   };
 
   return(
@@ -45,7 +49,7 @@ export const Stations = ({searchterm}: StationsProps) => {
       ) : (
         <Styled.StationsContainer>
           {stations.map((station: Station) => (
-            <StationItem key={station.id} station={station} />
+            <StationItem key={station.id} station={station} onSelectStation={handleSelectStation} />
           ))}
         </Styled.StationsContainer>
       )}

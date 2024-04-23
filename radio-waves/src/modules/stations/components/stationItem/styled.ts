@@ -10,6 +10,7 @@ export const StationContainer = styled.div `
     align-items: center;
     justify-content: center;
     background: linear-gradient(to bottom, #121212, #000000);
+    width: 250px;
 `
 
 export const CountryLabel = styled.span `
