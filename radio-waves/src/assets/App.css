@@ -5,6 +5,13 @@
   flex-direction: column;
 }
 
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+}
+
 body {
   background: linear-gradient(to bottom, #191414, #000000);
   color: white;
@@ -15,6 +22,12 @@ body {
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
   }
 }
 
