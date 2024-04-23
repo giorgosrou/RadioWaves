@@ -23,11 +23,11 @@ export const Stations = ({searchterm, onSelectStation }: StationsProps) => {
 
   useEffect(() => {
     if (searchterm.trim() !== '') {
-      //setUrl(`https://radiowaves-api.onrender.com/api/search?searchterm=${searchterm}`);
-      setUrl(`http://localhost:3002/api/search?searchterm=${searchterm}`);
+      setUrl(`https://radiowaves-api.onrender.com/api/search?searchterm=${searchterm}`);
+      //setUrl(`http://localhost:3002/api/search?searchterm=${searchterm}`);
     } else {
-      //setUrl(`https://radiowaves-api.onrender.com/api/filters?genre=${selectedGenre}`);
-      setUrl(`http://localhost:3002/api/filters?genre=${selectedGenre}`);
+      setUrl(`https://radiowaves-api.onrender.com/api/filters?genre=${selectedGenre}`);
+      //setUrl(`http://localhost:3002/api/filters?genre=${selectedGenre}`);
     }
   }, [searchterm, selectedGenre]);
 
